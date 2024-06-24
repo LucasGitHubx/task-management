@@ -1,0 +1,176 @@
+@import url('https://fonts.googleapis.com/css2?family=Playwrite+NG+Modern:wght@100..400&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: system-ui;
+}
+#root{
+    /* min-width: 100vw; */
+    min-height: 100vh;
+    background: linear-gradient(to right, #7e3eff, #5934ff);
+}
+#root .app{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+}
+h2{
+    text-align: center;
+    color: white;
+}
+header{
+    width: 100%;
+    min-width: 200px;
+
+    color: white;
+    text-align: center;
+    padding: 1rem;
+}
+header h1{
+    font-family: "Playwrite NG Modern", cursive;
+    letter-spacing: 4px;
+}
+form{
+    width: 60%;
+    max-width: 350px;
+    min-width: 200px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+form label{
+    color: white;
+    font-size: 1.1rem;
+
+    position: relative;
+    top: 10px;
+}
+form input{
+    padding: .3rem;
+    color: white;
+    background-color: transparent;
+    border: 1px solid white;
+    border-radius: 8px;
+    outline: none;
+
+    transition: .2s;
+}
+form input:focus{
+    border: 1px solid gray;
+}
+form button{
+    cursor: pointer;
+    width: 50%;
+    padding: .3rem;
+    margin: 0 auto;
+    font-size: 1rem;
+    color: white;
+    border: 1px solid white;
+    border-radius: 12px;
+    background-color: transparent;
+
+    transform: .3s;
+}
+form button:hover{
+    opacity: .5;
+}
+form input.error-task, form input.error-description{
+    animation-name: animation-error;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+}
+form label.label-error{
+    color: rgb(255, 74, 74);
+}
+.app h2.task-added-hidden{
+    color: transparent;
+}
+.app h2.task-added-visible{
+    color: white;
+}
+
+.app .display-task{
+    width: 70%;
+    max-width: 400px;
+    min-width: 200px;
+    margin-bottom: 2rem;
+
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+.app .display-task .task{
+    width: 100%;
+    padding: .5rem;
+    background-color: white;
+
+    display: flex;
+    justify-content: space-between;
+
+    position: relative;
+}
+.display-task .task .information{
+    display: flex;
+    flex-direction: column;
+}
+.task .information span{
+    font-weight: bold;
+}
+.display-task .task .buttons{
+    display: flex;
+    gap: 12px;
+}
+.display-task .task .buttons button{
+    cursor: pointer;
+    padding: .3rem;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
+}
+.display-task .task .buttons button.button-delete{
+    background-color: red;
+}
+.display-task .task .buttons button.button-edit{
+    background-color: rgb(88, 88, 255);
+}
+.display-task .task form.form-edit.visible{
+    width: 100%;
+    max-width: 400px;
+    height: 100%;
+
+    position: absolute;
+    top: 0;
+
+    background-color: white;
+}
+.task form{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.task form input{
+    width: 33%;
+    border: 1px solid black;
+    color: black;
+    padding: 0;
+}
+.display-task .task form.form-edit.hidden{
+    display: none;
+}
+
+@keyframes animation-error {
+    0%{
+        border: 1px solid rgb(255, 74, 74);
+    }
+    50%{
+        border: 1px solid rgb(255, 122, 122);
+    }
+    100%{
+        border: 1px solid rgb(255, 74, 74);
+    }
+}
